@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Inscripción</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <!-- Agregamos el audio -->
+    <audio id="background-audio" autoplay loop>
+        <source src="cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <div class="container">
+        <h1>HOJA DE INSCRIPCIÓN</h1>
+        <h2>EN LOS CICLOS FORMATIVOS DE GRADO SUPERIOR</h2>
+        
+        <form>
+            <!-- Sección Datos Personales -->
+            <div class="seccion datos-personales">
+                <div class="seccion-titulo">Datos Personales</div>
+                <div class="seccion-contenido">
+                    <div class="fila">
+                        <div class="campo">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="campo">
+                            <label for="apellidos">Apellidos:</label>
+                            <input type="text" id="apellidos" name="apellidos" required>
+                        </div>
+                        <div class="campo">
+                            <label for="dni">DNI:</label>
+                            <input type="text" id="dni" name="dni" required>
+                        </div>
+                    </div>
+                    
+                    <div class="fila">
+                        <div class="campo">
+                            <label for="localidad">Localidad de Nacimiento:</label>
+                            <input type="text" id="localidad" name="localidad" required>
+                        </div>
+                        <div class="campo">
+                            <label for="provincia">Provincia:</label>
+                            <select id="provincia" name="provincia" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="huelva">Huelva</option>
+                                <option value="sevilla">Sevilla</option>
+                                <option value="cadiz">Cádiz</option>
+                                <option value="cordoba">Córdoba</option>
+                                <option value="jaen">Jaén</option>
+                                <option value="malaga">Málaga</option>
+                                <option value="granada">Granada</option>
+                                <option value="almeria">Almería</option>
+                            </select>
+                        </div>
+                        <div class="campo">
+                            <label for="fecha">Fecha de Nacimiento:</label>
+                            <input type="date" id="fecha" name="fecha" required>
+                        </div>
+                    </div>
+                    
+                    <div class="fila">
+                        <div class="campo">
+                            <label for="direccion">Dirección:</label>
+                            <input type="text" id="direccion" name="direccion" required>
+                        </div>
+                        <div class="campo">
+                            <label for="postal">Código Postal:</label>
+                            <input type="text" id="postal" name="postal" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección Forma de Acceso -->
+            <div class="seccion forma-acceso">
+                <div class="seccion-titulo">Forma de Acceso</div>
+                <div class="seccion-contenido">
+                    <div class="opciones">
+                        <div class="opcion">
+                            <input type="radio" id="directo" name="acceso" value="directo" required>
+                            <label for="directo">Directo</label>
+                        </div>
+                        
+                        <div class="opcion">
+                            <input type="radio" id="bach" name="acceso" value="bachillerato" required>
+                            <label for="bach">Bachillerato Log Modalidad</label>
+                            <input type="text" name="bach_especifique">
+                        </div>
+                        
+                        <div class="opcion">
+                            <input type="radio" id="experimental" name="acceso" value="experimental" required>
+                            <label for="experimental">Experimental</label>
+                        </div>
+                        
+                        <div class="opcion">
+                            <input type="radio" id="cou" name="acceso" value="cou" required>
+                            <label for="cou">COU Opción</label>
+                            <input type="text" name="cou_especifique">
+                        </div>
+                        
+                        <div class="opcion">
+                            <input type="radio" id="fp2" name="acceso" value="fp2" required>
+                            <label for="fp2">FP 2</label>
+                        </div>
+                        
+                        <div class="opcion">
+                            <input type="radio" id="otros" name="acceso" value="otros" required>
+                            <label for="otros">Otros (especifique)</label>
+                            <input type="text" name="otros_especifique">
+                        </div>
+                        
+                        <div class="opcion">
+                            <input type="radio" id="prueba" name="acceso" value="prueba" required>
+                            <label for="prueba">Prueba Libre</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sección Documentos Adjuntados -->
+            <div class="seccion documentos">
+                <div class="seccion-titulo">Documentos Adjuntados</div>
+                <div class="seccion-contenido">
+                    <div class="opciones">
+                        <div class="opcion">
+                            <input type="checkbox" id="fotocopia" name="documentos" value="fotocopia">
+                            <label for="fotocopia">Fotocopia DNI</label>
+                        </div>
+                        
+                        <div class="opcion">
+                            <input type="checkbox" id="certificado" name="documentos" value="certificado">
+                            <label for="certificado">Certificado Académico</label>
+                        </div>
+                        
+                        <div class="opcion">
+                            <input type="checkbox" id="otros_docs" name="documentos" value="otros_docs">
+                            <label for="otros_docs">Otros documentos (especifique)</label>
+                            <input type="text" name="otros_docs_especifique">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="boton-enviar">Enviar Solicitud</button>
+        </form>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const backgroundAudio = document.getElementById('background-audio');
+        
+        // Configurar volumen inicial
+        backgroundAudio.volume = 0.9;
+        
+        // Función para iniciar el audio
+        function playAudio() {
+            backgroundAudio.play().catch(function(error) {
+                console.log('Error al reproducir:', error);
+            });
+        }
+        
+        // Intentar reproducir al cargar
+        playAudio();
+        
+        // Reproducir en el primer clic
+        document.addEventListener('click', function() {
+            playAudio();
+        }, { once: true });
+        
+        // Reproducir con cualquier tecla
+        document.addEventListener('keydown', function() {
+            playAudio();
+        }, { once: true });
+    });
+</script>
+</body>
+</html>

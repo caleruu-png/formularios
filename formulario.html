@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Formulario de registro - Mi web</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+      /* Quita el borde de los <div> dentro del formulario */
+      form div { border: none; }
+
+      /* Si el borde que ves es del fieldset, quítalo también */
+      fieldset { border: none; padding: 0; margin: 0; }
+
+      /* Mostrar opciones de sexo en horizontal */
+      fieldset > div {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 1rem;
+      }
+
+      /* Separación entre el radio y su etiqueta */
+      fieldset input[type="radio"] {
+        margin-right: .35rem;
+      }
+
+      body {
+        background-image: url('mono.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        padding: 20px;
+      }
+
+      /* Estilos para mejorar la legibilidad del contenido */
+      form {
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 600px;
+        margin: 20px auto;
+      }
+    </style>
+</head>
+<body>
+    <h1>Formulario de registro</h1>
+
+    <form action="" method="get" id="form-registro" autocomplete="on">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" maxlength="50">
+        </div>
+
+        <div>
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" maxlength="50">
+        </div>
+
+        <div>
+                <label for="sexo">Sexo:</label>
+                <input type="radio" id="sexo-hombre" name="sexo" value="hombre">
+                <label for="sexo-hombre">Hombre</label>
+                
+                <input type="radio" id="sexo-mujer" name="sexo" value="mujer">
+                <label for="sexo-mujer">Mujer</label>
+        </div>
+
+        <div>
+            <label for="correo">Correo electrónico:</label>
+            <input type="text" id="correo" name="correo">
+        </div>
+
+        <div>
+            <label for="poblacion">Población:</label>
+            <select id="poblacion" name="poblacion">
+                <option value="Alicante">Alicante</option>
+                <option value="Madrid">Madrid</option>
+                <option value="Sevilla">Sevilla</option>
+                <option value="Valencia">Valencia</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="5" cols="40"></textarea>
+        </div>
+
+        <div>
+            <input type="checkbox" id="info-novedades" name="info_novedades" value="si" checked>
+            <label for="info-novedades">Deseo recibir información sobre novedades y ofertas</label>
+        </div>
+
+        <div>
+            <input type="checkbox" id="acepto-condiciones" name="acepto_condiciones" value="si">
+            <label for="acepto-condiciones">Declaro haber leído y aceptar las condiciones generales del programa y la normativa sobre protección de datos</label>
+        </div>
+
+        <div>
+            <button type="submit">Enviar</button>
+        </div>
+        <div>
+            <button type="reset">Restablecer</button>
+        </div>
+    </form>
+</body>
+</html>
